@@ -1,0 +1,48 @@
+<main>
+    <header><img src="../../../assets/BookHaven_Logo.svg" alt="Logo HavenBook"/></header>
+
+    <section class="menu">
+      <nav>
+        <ul>
+          <li>
+            <input class="menu-itens" type="radio" id="activities" [checked]="activeComponent === 'activities'" (click)="setActiveComponent('activities')">
+            <label for="activities">
+              <img src="../../../assets/icons/Survey.svg" alt="Icone de Atividades"/>
+              Atividades
+            </label>
+          </li>
+          <li>
+            <input class="menu-itens" type="radio" id="books" [checked]="activeComponent === 'books'" (click)="setActiveComponent('books')">
+            <label for="books">
+              <img src="../../../assets/icons/Open Book.svg" alt="Icone de Livros"/>
+              Livros
+            </label>
+          </li>
+          <li>
+            <input class="menu-itens" type="radio" id="users" [checked]="activeComponent === 'users'" (click)="setActiveComponent('users')">
+            <label for="users">
+              <img src="../../../assets/icons/User.svg" alt="Icone de Usuários"/>
+              Usuários
+            </label>
+          </li>
+          <li>
+            <input class="menu-itens" type="radio" id="sales" [checked]="activeComponent === 'sales'" (click)="setActiveComponent('sales')">
+            <label for="sales">
+              <img src="../../../assets/icons/Shopping Cart.svg" alt="Icone de Vendas"/>
+              Vendas
+            </label>
+          </li>
+          <li>
+            <input class="menu-itens" type="radio" id="statistics" [checked]="activeComponent === 'statistics'" (click)="setActiveComponent('statistics')">
+            <label for="statistics">
+              <img src="../../../assets/icons/Analytics.svg" alt="Icone de Estatísticas"/>
+              Estatísticas
+            </label>
+          </li>
+        </ul>
+      </nav>
+         
+    </section>
+    
+</main>
+

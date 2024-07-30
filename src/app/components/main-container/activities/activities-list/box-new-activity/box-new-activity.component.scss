@@ -1,0 +1,101 @@
+main {
+    width: 100%;
+    height: 750px;
+    position: absolute;
+    z-index: 2;
+}
+
+section {
+    width: 100%;
+    height: fit-content;
+    margin-top: 320px;
+    position: relative;
+    background-color: var(--background-color-primary);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-left: none;
+    border-right: none;
+    box-shadow: 10px 0px 3px rgba($color: #5572D2, $alpha: 0.1);
+
+    span {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+    }
+
+    h1 {
+        width: 100%;
+        font-size: 20px;
+        font-weight: 300;
+        text-align: left;
+    }
+
+    .inputs {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+        
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                font-weight: 300;
+                font-size: 12px;
+            }
+        }
+
+        .description-activity {
+            width: 70%;
+        }
+
+        .date-activity {
+            width: 30%;
+        }
+
+        input {
+            width: 90%;
+            height: 30px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background-color: var(--background-color-hover-button);
+            border: 1px solid var(--border-input-color);
+        }
+
+        input[type="date"] {
+            font-size: 12px;
+            text-align: center;
+        }
+        
+
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    button {
+        width: 70px;
+        background-color: var(--background-color-checked);
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid var(--border-input-color);
+        font-size: 12px;
+        font-weight: 300;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+
+    .cancel-button {
+        background-color: var(--background-color-danger);
+    }
+
+}

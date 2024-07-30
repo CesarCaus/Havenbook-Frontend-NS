@@ -1,0 +1,40 @@
+<main>
+    <section *ngIf="listType == 'authors'">
+        <header>
+            <h1>Autores</h1>
+            <span (click)="closeBox()" class="material-symbols-outlined">close</span>
+        </header>
+        <div class="main-container">   
+            @for (author of authors; track $index) {
+                <div class="line">
+                    <p>{{author.name}}</p> 
+                    <button (click)="editAuthor(author)"><img src="../../../../../assets/icons/Edit.svg" alt="Botão de Editar"></button>
+                    <button (click)="removeAuthor(author)"><img src="../../../../../assets/icons/Minus.svg" alt="Botão de remover"></button>
+                </div>
+            }
+        </div>
+        <div class="inputs">
+            <input type="text" [ngModel]="inputAuthor.name">
+            <button (click)="saveAuthor()">Salvar</button>
+        </div>
+    </section>
+    <section *ngIf="listType == 'genres'">
+        <header>
+            <h1>Gêneros</h1>
+            <span (click)="closeBox()" class="material-symbols-outlined">close</span>
+        </header>
+        <div class="main-container">   
+            @for (genre of genres; track $index) {
+                <div class="line">
+                    <p>{{genre.name}}</p> 
+                    <button (click)="editGenre(genre)"><img src="../../../../../assets/icons/Edit.svg" alt="Botão de Editar"></button>
+                    <button (click)="removeGenre(genre)"><img src="../../../../../assets/icons/Minus.svg" alt="Botão de remover"></button>
+                </div>
+            }
+        </div>
+        <div class="inputs">
+            <input type="text" id="input-genre" [(ngModel)]="inputGenre.name">
+            <button (click)="saveGenre()">Salvar</button>
+        </div>
+    </section>
+</main>

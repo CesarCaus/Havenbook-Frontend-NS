@@ -1,0 +1,72 @@
+<main>
+
+    <section *ngIf="templateAddNewActivity" class="add-new-activity">
+        <app-box-new-activity (valueTemplateAddNewActivity)="handleValueTemplateAddNewActivity($event)"></app-box-new-activity>
+    </section>
+    <div *ngIf="templateEditActivity">
+        <app-box-edit-activity (valueTemplateEditActivity)="handleValueTemplateEditActivity($event)" [valueActivity]="sendDataActivityForBox()"></app-box-edit-activity>
+    </div>
+
+    <section class="my-activities">
+
+        <h1>Minhas atividades<span class="activities-length"> {{activities.length}} Atividades</span></h1>
+        
+
+        <div class="activities-list-header">
+            <span class="description-activity">Descrição</span>
+            <span class="date-activity">Dias restantes</span>
+            <span class="options-activity">Ações</span><br>
+        </div>
+        <div class="activities-list">
+
+        
+            @for (item of activities; track $index) {
+                <div *ngIf="calculateDaysRemaining(item.finalDate) >= 0" class="activity-line">
+                    <span class="description-activity">{{item.description}}</span>
+                    @if (calculateDaysRemaining(item.finalDate) == 1) {
+                        <span class="date-activity">{{ calculateDaysRemaining(item.finalDate) }} dia</span>
+                    } @else {
+                        <span class="date-activity">{{ calculateDaysRemaining(item.finalDate) }} dias</span>
+                    }
+                    <span class="options-activity">
+
+                        <button (click)="openEditActivity(item)"><img src="../../../../../assets/icons/Edit.svg" alt="Botão de visualizar"></button>
+        
+                        <button (click)="removeActivity(item)"><img src="../../../../../assets/icons/Minus.svg" alt="Botão de remover"></button>
+                    </span><br>
+                </div>
+            }
+        </div>
+
+        <button class="add-new-activity" (click)="openAddNewActivity()">Adicionar atividade<span class="material-symbols-outlined">add</span></button>
+
+
+        <h4>Atividades atrasadas<span class="activities-length danger-color"> {{delayedActivities}} Atividades</span></h4>
+
+        <div class="activities-list-header">
+            <span class="description-activity">Descrição</span>
+            <span class="date-activity">Dias restantes</span>
+            <span class="options-activity">Ações</span><br>
+        </div>
+        <div class="activities-list">
+
+        
+            @for (item of activities; track $index) {
+                <div *ngIf="calculateDaysRemaining(item.finalDate) < 0" class="activity-line">
+                    <span class="description-activity">{{item.description}}</span>
+                    @if (calculateDaysRemaining(item.finalDate) == -1) {
+                        <span class="date-activity danger-color">{{ calculateDaysRemaining(item.finalDate) }} dia</span>
+                    } @else {
+                        <span class="date-activity danger-color">{{ calculateDaysRemaining(item.finalDate) }} dias</span>
+                    }
+                    <span class="options-activity">
+                        <button (click)="openEditActivity(item)"><img src="../../../../../assets/icons/Edit.svg" alt="Botão de visualizar"></button>
+        
+                        <button (click)="removeActivity(item)"><img src="../../../../../assets/icons/Minus.svg" alt="Botão de remover"></button>
+                    </span><br>
+                </div>
+            }
+        </div>
+    </section>
+    
+</main>

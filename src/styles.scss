@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+
+//background-colors
+:root {
+    --background-color-header: #16182F;
+    --background-color-primary: #1C1F37;
+    --background-color-box-book: #252947;
+    --background-color-secondary: #141627;
+    --background-color-checked: #5572D2;
+    --background-color-hover-button: #252947;
+    --background-color-danger: #ff6a6a;
+}
+
+//font-colors
+:root {
+    --font-color-primary: rgb(255, 255, 255);
+    --font-color-secondary: rgb(196, 196, 196);
+    --font-color-span: #B2B2B2;
+    --font-danger-color: #ff6a6a;
+    --font-color-tertiary: #5572D2;
+}
+
+//border-colors
+:root {
+    --border-input-color: #5572d235;
+}
+
+.danger-color {
+    color: #FF5858;
+}

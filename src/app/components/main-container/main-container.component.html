@@ -1,0 +1,17 @@
+<main class="main">
+  <ng-container *ngIf="activeComponent === 'activities'">
+    <app-activities></app-activities>
+  </ng-container>
+  <ng-container *ngIf="activeComponent === 'books'">
+    <app-books></app-books>
+  </ng-container>
+  <ng-container *ngIf="activeComponent === 'users'">
+    <app-users></app-users>
+  </ng-container>
+  <ng-container *ngIf="activeComponent === 'sales'">
+    <app-sales></app-sales>
+  </ng-container>
+  <ng-container *ngIf="activeComponent === 'statistics'">
+    <app-statistics></app-statistics>
+  </ng-container>
+</main>

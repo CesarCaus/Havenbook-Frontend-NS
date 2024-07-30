@@ -1,0 +1,23 @@
+<main>
+    <header class="header-grid">
+       <h1>Usuários do Sistema</h1>
+
+        <span class="right-box">
+            <span class="search-filter-box">
+                <input class="search-filter" type="text" [(ngModel)]="searchTerm" (input)="searchUsers()"><span class="material-symbols-outlined">search</span>
+            </span>
+            <button><img src="../../../../assets/icons/Add User Male.svg"/></button>
+        </span>
+    </header>
+    <section class="users-container">
+       
+        @for (item of filteredUsers; track $index) {
+            <div class="user">
+            <span class="user-image"><img src={{item.urlImage}} alt=""></span>
+            <h2>{{item.name}}</h2>
+            <p>{{item.department}}</p>
+            <button><span class="material-symbols-outlined">search</span></button>
+            </div>
+        }
+    </section>
+</main>

@@ -1,0 +1,85 @@
+<main>
+    <header class="header-grid">
+        <span class="search-filter-box"><input class="search-filter" type="text" [(ngModel)]="searchTerm" (input)="searchBooks()"/><span class="material-symbols-outlined">
+            search
+            </span></span>
+
+        <div class="filters">
+            <span class="ordering-item" (click)="orderingValue()">Preço
+                <span *ngIf="orderingIconPrice == 1" class="material-symbols-outlined">unfold_more</span>
+                <span *ngIf="orderingIconPrice == 2" class="material-symbols-outlined">arrow_drop_down</span>
+                <span *ngIf="orderingIconPrice == 3" class="material-symbols-outlined">arrow_drop_up</span>
+            </span>
+            <span class="ordering-item" (click)="orderingDate()">Data de Publicação
+                <span *ngIf="orderingIconDate == 1" class="material-symbols-outlined">unfold_more</span>
+                <span *ngIf="orderingIconDate == 2" class="material-symbols-outlined">arrow_drop_down</span>
+                <span *ngIf="orderingIconDate == 3" class="material-symbols-outlined">arrow_drop_up</span>
+            </span>
+            <span class="filter-item" appClickOutside (clickOutside)="closeMenuValue('author')" [ngClass]="{'filter-menu-open' : menuFilterAuthor}" (click)="openMenuFilter('author')">
+            <header>
+                <h4>Escritor</h4>
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+            </header>
+                <div *ngIf="menuFilterAuthor == true" class="menu-filter-item">
+                    <header>
+                        <h4>Escritor</h4>
+                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    </header>
+
+                    @for (author of authors; track $index) {
+                        <p (click)="filterBooksByAuthor(author.name)">{{author.name}}</p>
+                    }
+                </div>
+            </span>
+            <span class="filter-item" appClickOutside (clickOutside)="closeMenuValue('genre')" [ngClass]="{'filter-menu-open' : menuFilterGenre}" (click)="openMenuFilter('genre')">
+                <header>
+                    <h4>Gênero</h4>
+                    <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                </header>
+                <div *ngIf="menuFilterGenre == true" class="menu-filter-item">
+                    <header>
+                        <h4>Gênero</h4>
+                        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                    </header>
+
+                    @for (genre of genres; track $index) {
+                        <p (click)="filterBooksByGenre(genre.name)">{{genre.name}}</p>
+                    }
+                </div>
+            </span>
+        </div>
+
+        <div class="buttons">
+            <button (click)="openAddBook()" class="button-add-book"><img src="../../../../assets/icons/Add Book.svg"/></button>
+            <button (click)="openListBox('authors')"><img src="../../../../assets/icons/Hand With Pen.svg"/></button>
+            <button (click)="openListBox('genres')"><img src="../../../../assets/icons/List.svg"/></button>
+        </div>
+
+        <div class="filtered-itens-box">
+            <span *ngIf="authorFilteredActive" class="filtered-item">{{ authorFiltered }} <span (click)="closeFilteredActive()" class="material-symbols-outlined">close</span>
+         </span>
+            <span *ngIf="genreFilteredActive" class="filtered-item">{{ genreFiltered }} <span (click)="closeFilteredActive()" class="material-symbols-outlined">close</span></span>
+        </div>
+       
+    </header>
+    <section class="books-container">
+        @for (item of filteredBooks; track $index) {
+            <div class="book" (click)="openViewBox(item)">
+                <span class="number-of-pages">{{item.numberOfPages}} páginas</span>
+                <img src="../../../../assets/icons/Bookmark.svg" width="60px"/>
+                <h3>{{item.title}}</h3>
+                <p>{{item.author}}</p>
+                <span class="genders">
+                    @for (genre of item.genres; track $index) {
+                        {{genre}}{{ $last ? '' : ',' }}
+                    }
+                </span>
+                <span class="value">R${{item.value.toPrecision(4)}}</span>
+            </div>
+        }
+        
+    </section>
+
+    <app-list-box *ngIf="templateListBox" (valueTemplateListBox)="handleValueTemplateListBox($event)" [listType]="listBoxType"></app-list-box>
+    <app-book-view-box *ngIf="templateViewBook" (valueTemplateBookView)="handleValueTemplateBookView($event)" [bookInfo]="sendBookInfo"></app-book-view-box>
+</main>

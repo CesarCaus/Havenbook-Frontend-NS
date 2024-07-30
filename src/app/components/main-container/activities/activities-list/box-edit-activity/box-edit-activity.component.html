@@ -1,0 +1,22 @@
+<main>
+    <form (ngSubmit)="updateActivity()">
+      <section>
+        <div class="inputs">
+          <div class="description-activity">
+            <label for="activity.des">Descrição</label>
+            <input [(ngModel)]="description" name="description" class="input-data-activity" type="text">
+          </div>
+  
+          <div class="date-activity">
+            <label for="finalDate">Data de conclusão</label>
+            <input [(ngModel)]="finalDate" name="finalDate" class="input-data-activity" type="date">
+          </div>
+        </div>
+  
+        <div class="buttons">
+          <button type="submit">Salvar</button>
+          <button class="cancel-button" (click)="closeBox()">Cancelar</button>
+        </div>
+      </section>
+    </form>
+</main>

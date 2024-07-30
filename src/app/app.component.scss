@@ -1,0 +1,26 @@
+main {
+    width: 85vw;
+    height: calc(100vh - 100px);
+    background-color: var(--background-color-secondary);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    overflow: auto;
+}
+
+main::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--background-color-secondary);
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background-color: var(--background-color-primary);
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-track {
+    background-color: var(--background-color-secondary);
+    border-radius: 10px;
+}
