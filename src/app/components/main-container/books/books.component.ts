@@ -88,6 +88,20 @@ export class BooksComponent implements OnInit {
 
   openAddBook() {
     this.templateViewBook = true;
+
+    let booksUndefined: IBook = {
+      id: 0,
+      title: ' ',
+      author: ' ',
+      publicationDate: new Date(),
+      description: ' ',
+      genres: [],
+      numberOfPages: 0,
+      value: 0
+    }
+
+    this.openViewBox(booksUndefined);
+      
   }
 
   handleValueTemplateListBox(event: boolean) {
@@ -96,6 +110,9 @@ export class BooksComponent implements OnInit {
 
    handleValueTemplateBookView(event: boolean) {
     this.templateViewBook = event;
+    if (!event) {
+      this.loadBooks(); // Update the list when the view box is closed
+    }
    }
 
   filterBooksByAuthor(authorName: string) {

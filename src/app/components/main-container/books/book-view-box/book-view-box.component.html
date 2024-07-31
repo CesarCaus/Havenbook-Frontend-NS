@@ -1,9 +1,97 @@
 <main>
-    <section>
-        <header>
-            <span (click)="closeBox()" class="material-symbols-outlined">close</span>
+  <!-- Exibição do livro -->
+  <section *ngIf="!templateNewBook">
+    <div class="close-box">
+      <span (click)="closeBox()" class="material-symbols-outlined">close</span>
+    </div>
 
-            {{book.title}}
-        </header>
-    </section>
+    <div class="first-line">
+      <div class="left-info">
+        <div class="line-info">
+          <label for="title">Título</label>
+          <p>{{ book.title }}</p>
+        </div>
+        <div class="line-info">
+          <label for="author">Autor</label>
+          <p>{{ book.author }}</p>
+        </div>
+        <div class="line-info">
+          <label for="genres">Gêneros</label>
+          <div class="line-genre">
+            <span *ngFor="let genre of book.genres">{{ genre }}</span>
+          </div>
+        </div>
+        <div class="line-info">
+          <label for="numberOfPages">Número de páginas</label>
+          <p>{{ book.numberOfPages }}</p>
+        </div>
+      </div>
+      <div class="right-info">
+        <img src="../../../../../assets/icons/Bookmark.svg" width="120px" alt="Bookmark Icon" />
+      </div>
+    </div>
+    <div class="secondary-line">
+      <label for="description">Descrição</label>
+      <p>{{ book.description }}</p>
+    </div>
+    <div class="buttons">
+      <button (click)="editBook()">Editar</button>
+      <button (click)="deleteBook()" class="delete-button">Excluir</button>
+    </div>
+  </section>
+
+  <!-- Formulário para novo livro -->
+  <section *ngIf="templateNewBook">
+    <div class="close-box">
+      <span (click)="closeBox()" class="material-symbols-outlined">close</span>
+    </div>
+
+    <div class="first-line">
+      <div class="left-info">
+        <div class="line-info">
+          <label for="title">Título</label>
+          <input type="text" id="title" [(ngModel)]="newBook.title" name="title" />
+        </div>
+        <div class="line-info">
+          <label for="author">Autor</label>
+          <select id="author" [(ngModel)]="newBook.author" name="author">
+            <option value="">Selecione um autor</option>
+            <option *ngFor="let author of authors" [value]="author.name">{{ author.name }}</option>
+          </select>
+        </div>
+        <div class="line-info">
+          <label for="genres">Gêneros</label>
+          <ul>
+            <li *ngFor="let genre of newBook.genres">
+              {{ genre }}
+              <span (click)="removeItem(genre)" class="material-symbols-outlined">close</span>
+            </li>
+          </ul>
+          
+          <select (change)="addGenre($event)" id="genres" name="genres">
+            <option *ngFor="let genre of genres" [value]="genre.name">{{ genre.name }}</option>
+          </select>
+        </div>
+        <div class="line-info">
+          <label for="numberOfPages">Número de páginas</label>
+          <input type="text" id="numberOfPages" [(ngModel)]="newBook.numberOfPages" name="numberOfPages" />
+        </div>
+      </div>
+      <div class="right-info">
+        <img src="../../../../../assets/icons/Bookmark.svg" width="120px" alt="Bookmark Icon" />
+      </div>
+    </div>
+    <div class="secondary-line">
+      <label for="description">Descrição</label>
+      <textarea id="description" [(ngModel)]="newBook.description" name="description"></textarea>
+      <div class="price">
+        <label for="price">Valor</label>
+        <input type="text" id="price" [(ngModel)]="newBook.value" name="price" />
+      </div>
+    </div>
+    <div class="buttons">
+      <button (click)="closeBox()">Cancelar</button>
+      <button (click)="saveBook()" class="save-button">Salvar</button>
+    </div>
+  </section>
 </main>
