@@ -23,7 +23,6 @@ export class UsersComponent implements OnInit {
     this.usersService.getAllUsers().subscribe((data: IUser[]) => {
       this.users = data;
       this.users.forEach(element => {
-        element.urlImage = "../../../../assets/icons/User.svg";
         this.filteredUsers = this.users;
       });
     });

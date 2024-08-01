@@ -18,6 +18,7 @@ import { ClickOutsideDirective } from '../../directives/click-outside.directive'
 import { BrowserModule } from '@angular/platform-browser';
 import { ListBoxComponent } from './books/list-box/list-box.component';
 import { BookViewBoxComponent } from './books/book-view-box/book-view-box.component';
+import { UserViewBoxComponent } from './users/user-view-box/user-view-box.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BookViewBoxComponent } from './books/book-view-box/book-view-box.compon
     BoxEditActivityComponent,
     ClickOutsideDirective,
     ListBoxComponent,
-    BookViewBoxComponent
+    BookViewBoxComponent,
+    UserViewBoxComponent
   ],
   imports: [
     CommonModule,

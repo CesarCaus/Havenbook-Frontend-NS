@@ -1,0 +1,64 @@
+<main>
+    <!-- Exibição do usuário -->
+    <section *ngIf="!templateNewUser">
+      <div class="close-box">
+        <span (click)="closeBox()" class="material-symbols-outlined">close</span>
+      </div>
+  
+      <div class="first-line">
+        <div class="left-info">
+          <div class="line-info">
+            <label for="name">Nome</label>
+            <p>{{ user.name }}</p>
+          </div>
+          <div class="line-info">
+            <label for="username">Username</label>
+            <p>{{ user.username }}</p>
+          </div>
+          <div class="line-info">
+            <label for="department">Departamento</label>
+            <p>{{ user.department }}</p>
+          </div>
+        </div>
+        <div class="right-info">
+          <img src="../../../../../assets/icons/User.svg" width="120px" alt="User Icon" />
+        </div>
+      </div>
+      <div class="buttons">
+        <button (click)="editUser()">Editar</button>
+        <button (click)="deleteUser()" class="delete-button">Excluir</button>
+      </div>
+    </section>
+  
+    <!-- Formulário para novo usuário -->
+    <section *ngIf="templateNewUser">
+      <div class="close-box">
+        <span (click)="closeBox()" class="material-symbols-outlined">close</span>
+      </div>
+  
+      <div class="first-line">
+        <div class="left-info">
+          <div class="line-info">
+            <label for="name">Nome</label>
+            <input type="text" id="name" [(ngModel)]="newUser.name" name="name" />
+          </div>
+          <div class="line-info">
+            <label for="username">Username</label>
+            <input type="text" id="username" [(ngModel)]="newUser.username" name="username" />
+          </div>
+          <div class="line-info">
+            <label for="department">Departamento</label>
+            <input type="text" id="department" [(ngModel)]="newUser.department" name="department" />
+          </div>
+        </div>
+        <div class="right-info">
+          <img src="../../../../../assets/icons/User.svg" width="120px" alt="User Icon" />
+        </div>
+      </div>
+      <div class="buttons">
+        <button (click)="closeBox()">Cancelar</button>
+        <button (click)="saveUser()" class="save-button">Salvar</button>
+      </div>
+    </section>
+  </main>
+  
