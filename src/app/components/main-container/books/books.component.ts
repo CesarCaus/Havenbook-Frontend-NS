@@ -111,7 +111,7 @@ export class BooksComponent implements OnInit {
    handleValueTemplateBookView(event: boolean) {
     this.templateViewBook = event;
     if (!event) {
-      this.loadBooks(); // Update the list when the view box is closed
+      this.loadBooks(); 
     }
    }
 

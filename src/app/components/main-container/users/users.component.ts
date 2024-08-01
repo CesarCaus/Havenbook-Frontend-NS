@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsersService } from '../../../services/users.service';
 import { IUser } from '../../../interfaces/IUser.interface';
 
@@ -8,12 +8,22 @@ import { IUser } from '../../../interfaces/IUser.interface';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent implements OnInit {
-
+  @Input() valueTemplateUserView = new EventEmitter<boolean>();
+  @Output() sendUserInfo!: IUser;
   constructor(private usersService: UsersService) {}
 
   users!: IUser[];
   filteredUsers!: IUser[];
   searchTerm: string = '';
+  templateUserView: boolean = false;
+
+  undefinedUser: IUser = {
+    id: 0,
+    name: '',
+    username: '',
+    password: '',
+    department: ''
+  }
 
   ngOnInit(): void {
       this.loadUsers();
@@ -26,6 +36,20 @@ export class UsersComponent implements OnInit {
         this.filteredUsers = this.users;
       });
     });
+  }
+
+  openUser(user: IUser) {
+    this.sendUserInfo = user;
+    this.templateUserView = true;
+  }
+
+
+  handleValueTemplateUserView(event: boolean) {
+    this.templateUserView = event;
+
+    if(!event) {
+      this.loadUsers();
+    }
   }
 
   searchUsers() {

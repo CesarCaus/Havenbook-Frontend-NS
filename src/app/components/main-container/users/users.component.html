@@ -6,7 +6,7 @@
             <span class="search-filter-box">
                 <input class="search-filter" type="text" [(ngModel)]="searchTerm" (input)="searchUsers()"><span class="material-symbols-outlined">search</span>
             </span>
-            <button><img src="../../../../assets/icons/Add User Male.svg"/></button>
+            <button (click)="openUser(undefinedUser)"><img src="../../../../assets/icons/Add User Male.svg"/></button>
         </span>
     </header>
     <section class="users-container">
@@ -16,8 +16,11 @@
             <span class="user-image"><img src="../../../../assets/icons/User.svg" alt=""></span>
             <h2>{{item.name}}</h2>
             <p>{{item.department}}</p>
-            <button><span class="material-symbols-outlined">search</span></button>
+            <button (click)="openUser(item)"><span class="material-symbols-outlined">search</span></button>
             </div>
         }
     </section>
+
+    <app-user-view-box *ngIf="templateUserView" (valueTemplateUserView)="handleValueTemplateUserView($event)" [userInfo]="sendUserInfo"></app-user-view-box>
+
 </main>
