@@ -12,7 +12,7 @@ import { ActivityManagementComponent } from './activities/activity-management/ac
 import { ScheduleComponent } from './activities/schedule/schedule.component';
 import { ActivityDashboardComponent } from './activities/activity-dashboard/activity-dashboard.component';
 import { BoxNewActivityComponent } from './activities/activities-list/box-new-activity/box-new-activity.component';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormGroupDirective, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BoxEditActivityComponent } from './activities/activities-list/box-edit-activity/box-edit-activity.component';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 import { BrowserModule } from '@angular/platform-browser';
@@ -42,7 +42,8 @@ import { UserViewBoxComponent } from './users/user-view-box/user-view-box.compon
   imports: [
     CommonModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [
     NavigationService

@@ -1,1 +1,32 @@
-<p>sales works!</p>
+
+<main>
+    <header>
+        <h1>Histórico de vendas</h1>
+        <div class="th">
+            <span class="books-header">Livros</span>
+            <span>Data da venda</span>
+            <span>Valor total</span>
+        </div>
+    </header>
+    <section class="container">
+        @for (sale of saleHistory; track $index) {
+            <div class="sale-line">
+              <span class="itens">
+                @for (book of sale.books; track $index) {
+                    <p>{{book.title}} <span>R${{book.value.toPrecision(2)}}</span></p>
+                }
+                <p *ngIf="getTrib(sale) >= 0" class="taxa">Taxa: R$ {{getTrib(sale).toPrecision(2)}} <span>Desconto: R$0</span></p>
+                <p *ngIf="getTrib(sale) < 0" class="taxa"><span>Taxa: R$0</span>Desconto: R$ {{getTrib(sale).toPrecision(2)}}</p>
+              </span>
+              <span class="data">
+                {{sale.saleDate}}
+              </span>
+    
+              <span class="value">
+                R$ {{sale.totalValue.toPrecision(4)}}
+              </span>
+    
+            </div>
+        }
+    </section>
+</main>

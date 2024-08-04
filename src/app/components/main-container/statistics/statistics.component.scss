@@ -1,0 +1,288 @@
+main {
+    width: calc(100% - 60px);
+    height: 37vw;
+    overflow: auto;
+    margin: 30px;
+    position: relative;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  h1 {
+    color: var(--font-color-tertiary);
+    position: absolute;
+    top: 10px;
+    font-size: 18px;
+    font-weight: 300;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .left-box {
+    width: 45%;
+    height: 37vw;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  
+    .first-line {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .secondary-line {
+      width: 100%;
+      height: 275px;
+      background-color: var(--background-color-primary);
+      border-radius: 20px;
+      position: relative;
+      padding: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      .box-data {
+        width: 100%;
+        height: 200px;
+        margin-top: 20px;
+  
+        .line-data {
+          width: 100%;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 20px;
+  
+          .author-name {
+            font-size: 14px;
+            width: 120px;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+  
+          .line {
+            height: 5px;
+            background-color: var(--background-color-checked);
+            transition: 1s width linear;
+          }
+  
+          .amount {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  
+  .right-box {
+    width: 52.5%;
+    height: 37vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+  
+    .search-dates {
+      height: 3vw;
+      width: 100%;
+      background-color: var(--background-color-primary);
+      border-radius: 20px;
+      display: flex;
+      position: relative;
+      align-items: center;
+      
+
+      .datas-filtered {
+        position: absolute;
+        left: 10px;
+        padding: 5px;
+        height: 30px;
+        font-size: 14px;
+        background-color: var(--background-color-checked);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        span {
+            font-size: 14px;
+            cursor: pointer;
+        }
+      }
+
+     form {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: right;
+        width: 100%;
+        padding-right: 10px;
+
+        input {
+            height: 30px;
+            background-color: var(--background-color-box-book);
+            border: 1px solid var(--border-input-color);
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: var(--background-color-checked);
+            border: none;
+            padding: 5px;
+            font-size: 14px;
+            height: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+     }
+    
+
+    }
+  }
+  
+  .container-right {
+    width: 100%;
+    position: relative;
+    height: 31.9vw;
+    background-color: var(--background-color-primary);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "section1 section1"
+      "section2 section3";
+  
+    .section-container-r:nth-child(1) {
+      grid-area: section1;
+    }
+  
+    .section-container-r:nth-child(2) {
+      grid-area: section2;
+    }
+  
+    .section-container-r:nth-child(3) {
+      grid-area: section3;
+    }
+  
+    .section-container-r {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+      
+      h1 {
+        position: relative;
+        margin-bottom: 20px;
+        span {
+            font-size: 12px;
+            color: rgb(158, 158, 158);
+        }
+      }
+
+      .circle {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid var(--background-color-checked);
+        border-radius: 50%;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .lock {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+      }
+    
+        .line-data {
+          width: 100%;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 20px;
+
+          .book-title {
+            font-size: 14px;
+            width: 200px;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+      
+          .line {
+            height: 5px;
+            background-color: var(--background-color-checked);
+            transition: 1s width linear;
+          }
+      
+          .amount {
+            font-size: 14px;
+          }
+        }
+
+     
+    }
+  }
+  
+  .data-box {
+    width: 265px;
+    height: 265px;
+    background-color: var(--background-color-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  
+    span {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: 600;
+      width: 150px;
+      height: 150px;
+      border: 5px solid var(--font-color-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+  }
+  
+  .least-selling-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 10px;
+    background-color: var(--background-color-primary);
+    border-radius: 20px;
+    
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    span {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  

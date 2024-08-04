@@ -1,1 +1,84 @@
-<p>statistics works!</p>
+<main>
+   <section class="left-box">
+       <div class="first-line">
+            <section class="data-box">
+                <h1>Faturamento</h1>
+            <span>R${{totalRevenue}}</span>
+            </section>
+            <section class="data-box">
+                <h1>Livros vendidos</h1>
+            <span>{{totalBookCount}}</span>
+            </section>
+       </div>
+       <div class="secondary-line">
+        <h1>Escritores com livros mais vendidos</h1>
+        <div class="box-data">
+          <div *ngFor="let item of authorSales.slice(0, 5); let i = index" class="line-data">
+            <span class="author-name">
+              {{ item.author }}
+            </span>
+            <span class="line" [style.width]="relativeWidths[i]">
+            </span>
+            <span class="amount">
+              {{ item.quantity }}
+            </span>
+          </div>
+        </div>
+      </div>
+      
+   </section>
+   <section class="right-box">
+    <div class="search-dates">   
+        <span class="datas-filtered" *ngIf="filterForm.get('startDate')?.value && filterForm.get('endDate')?.value">
+            {{ filterForm.get('startDate')?.value }} - {{ filterForm.get('endDate')?.value }} <span (click)="resetFilters()" class="material-symbols-outlined">close</span>
+          </span>
+        <form [formGroup]="filterForm" (ngSubmit)="applyDateFilter()">
+          <div class="form-group">
+           
+            <input
+              id="startDate"
+              type="date"
+              formControlName="startDate"
+              class="form-control"
+            />
+          </div>
+          
+          <div class="form-group">
+           
+            <input
+              id="endDate"
+              type="date"
+              formControlName="endDate"
+              class="form-control"
+            />
+          </div>
+          
+          <button type="submit">Filtrar</button>
+        </form>
+      </div>
+    <div class="container-right">
+        <section class="section-container-r">
+            <h1>Livros mais vendidos</h1>
+
+            <div *ngFor="let item of bestSellingBooks.slice(0, 5); let i = index" class="line-data">
+                <span class="book-title" >
+                  {{ item.title }}
+                </span>
+                <span class="line" [style.width]="relativeWidthsBook[i]">
+                </span>
+                <span class="amount">
+                 {{item.count}}
+                </span>
+            </div>
+        </section>
+        <section class="section-container-r"> 
+            <h1>Livros nunca vendidos<br><span>(Quantidade)</span></h1>
+            <span class="circle">{{totalBooksNeverSold}}</span>        
+        </section>
+        <section class="section-container-r">
+            <h1>Livros com maior rentabilidade</h1>
+            <span class="lock"><img src="../../../../assets/icons/Lock.svg" alt="60px" width=""></span>
+        </section>
+    </div>
+   </section>
+</main>

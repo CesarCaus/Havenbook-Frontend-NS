@@ -1,0 +1,110 @@
+main {
+    width: calc(100% - 60px);
+    height: 37vw;
+    overflow: auto;
+    margin: 30px;
+    position: relative;
+    background-color: var(--background-color-primary);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+header {
+    width: 100%;
+    padding: 20px;
+
+    h1 {
+        font-size: 25px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        margin-top: -20px;
+        
+           
+    }
+
+    .th {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin-bottom: -10px;
+
+        span {
+            color: var(--font-color-tertiary);
+        }
+
+        .books-header {
+            width: 430px;
+        }
+    }
+}
+
+.container {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    padding: 20px;
+    
+}
+.sale-line {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    border: 1px solid var(--border-input-color);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+
+    .itens {
+
+        width: 415px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        .taxa {
+            font-size: 13px;
+            color: var(--font-color-secondary);
+            width: 200px
+        }
+    }
+
+    .value {
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    p {
+        padding: 4px;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            color: var(--font-color-secondary);
+        }
+    }
+
+}
+
+.container::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--background-color-secondary);
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: var(--background-color-checked);
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background-color: var(--background-color-primary);
+    border-radius: 10px;
+}
