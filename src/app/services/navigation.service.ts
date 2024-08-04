@@ -9,7 +9,7 @@ export class NavigationService {
   public activeComponent$: Observable<string>;
 
   constructor() {
-    this.activeComponentSubject = new BehaviorSubject<string>('statistics'); 
+    this.activeComponentSubject = new BehaviorSubject<string>('activities'); 
     this.activeComponent$ = this.activeComponentSubject.asObservable(); 
   }
 
